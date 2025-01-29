@@ -15,9 +15,9 @@ const videos = {
         { title: "歴史動画1", id: "動画ID7" },
         { title: "歴史動画2", id: "動画ID8" }
     ],
-    sexy: [
-        { title: "セクシー動画1", id: "動画ID9" },
-        { title: "セクシー動画2", id: "動画ID10" }
+    cute: [
+        { title: "かわいい動画1", id: "動画ID9" },
+        { title: "かわいい動画2", id: "動画ID10" }
     ]
 };
 
