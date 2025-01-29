@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>おすすめYoutube動画</title>
+    <title>シックなYouTube動画紹介</title>
     <link rel="stylesheet" href="blog1_style.css">
     <script defer src="blog1_script.js"></script>
 </head>
 <body>
-    <h1>おすすめYoutube動画</h1>
+    <header class="hero">
+        <h1>🎬 シックなYouTube動画紹介</h1>
+    </header>
 
-    <div class="button-container">
-        <button onclick="showCategory('entertainment')">エンタメ</button>
-        <button onclick="showCategory('vtuber')">VTuber</button>
-        <button onclick="showCategory('science')">科学・テクノロジー</button>
-        <button onclick="showCategory('history')">歴史・地理</button>
-        <button onclick="showCategory('cute')">かわいい</button>
+    <div class="genre-container">
+        <div class="genre-scroll">
+            <button class="genre-btn" onclick="showCategory('entertainment')">エンタメ</button>
+            <button class="genre-btn" onclick="showCategory('vtuber')">VTuber</button>
+            <button class="genre-btn" onclick="showCategory('science')">科学・テクノロジー</button>
+            <button class="genre-btn" onclick="showCategory('history')">歴史・地理</button>
+            <button class="genre-btn" onclick="showCategory('cute')">かわいい</button>
+        </div>
     </div>
 
-    <div id="video-container">
-        <!-- 動画リストがここに表示される -->
-    </div>
+    <section id="video-container" class="video-grid">
+        <!-- JavaScriptで動画を動的に挿入 -->
+    </section>
 </body>
 </html>
