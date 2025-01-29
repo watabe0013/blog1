@@ -1,4 +1,3 @@
-// 各ジャンルの動画リスト
 const videos = {
     entertainment: [
         { title: "面白動画1", id: "動画ID1" },
@@ -22,16 +21,19 @@ const videos = {
     ]
 };
 
-// 動画リストを表示する関数
+// 動画リストを表示
 function showCategory(category) {
     const container = document.getElementById("video-container");
-    container.innerHTML = "";  // 一度リストをクリア
+    container.innerHTML = ""; 
 
-    videos[category].forEach(video => {
+    videos[category].forEach((video, index) => {
         const videoElement = document.createElement("div");
+        videoElement.classList.add("video-card");
+        videoElement.style.animationDelay = `${index * 0.1}s`; // 遅延アニメーション
+
         videoElement.innerHTML = `
             <h3>${video.title}</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="180" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
         `;
         container.appendChild(videoElement);
     });
