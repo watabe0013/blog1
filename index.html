@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube動画紹介サイト</title>
+    <title>おすすめYoutube動画</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>私のYouTube動画</h1>
-    <p>最新のYouTube動画を紹介します。</p>
+    <h1>おすすめYoutube動画</h1>
 
-    <!-- YouTube動画埋め込み -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/動画ID" frameborder="0" allowfullscreen></iframe>
+    <div class="button-container">
+        <button onclick="showCategory('entertainment')">エンタメ</button>
+        <button onclick="showCategory('vtuber')">VTuber</button>
+        <button onclick="showCategory('science')">科学・テクノロジー</button>
+        <button onclick="showCategory('history')">歴史・地理</button>
+        <button onclick="showCategory('sexy')">セクシー</button>
+    </div>
 
-    <p><a href="https://www.youtube.com/channel/チャンネルID" target="_blank">YouTubeチャンネルはこちら</a></p>
+    <div id="video-container">
+        <!-- 動画リストがここに表示される -->
+    </div>
 </body>
 </html>
