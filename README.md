@@ -1,1 +1,1 @@
-watabe0013.github.io/blog1/
+https://watabe0013.github.io/blog1/
