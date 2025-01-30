@@ -1,33 +1,116 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>明るいYouTube動画紹介</title>
-    <link rel="stylesheet" href="blog1_style.css">
-    <script defer src="blog1_script.js"></script>
-</head>
-<body>
-    <header class="hero">
-        <h1>🎬 おすすめYouTube動画</h1>
-        <p>最新の面白い動画をジャンル別に紹介！</p>
-    </header>
+/* --- 明るいカラーテーマ（背景とフォント） --- */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
-    <div class="genre-container">
-        <div class="genre-scroll">
-            <button class="genre-btn" onclick="showCategory('entertainment')">エンタメ</button>
-            <button class="genre-btn" onclick="showCategory('history')">歴史・地理・文化</button>
-            <button class="genre-btn" onclick="showCategory('science')">科学・テクノロジー</button>
-            <button class="genre-btn" onclick="showCategory('music')">音楽</button>
-            <button class="genre-btn" onclick="showCategory('dance')">ダンス</button>
-            <button class="genre-btn" onclick="showCategory('anime')">アニメ</button>
-            <button class="genre-btn" onclick="showCategory('cute')">かわいい</button>
-            <button class="genre-btn" onclick="showCategory('other')">その他</button>
-        </div>
-    </div>
+/* --- ヘッダー（高さを半分に調整） --- */
+.hero {
+    background: linear-gradient(135deg, #ffebcd, #ffe4e1);
+    text-align: center;
+    padding: 25px 20px; /* 高さを半分に */
+}
 
-    <section id="video-container" class="video-grid">
-        <!-- JavaScriptで動画を動的に挿入 -->
-    </section>
-</body>
-</html>
+.hero h1 {
+    font-size: 2em; /* 少し小さく */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.hero p {
+    font-size: 1em; /* 少し小さく */
+    color: #555;
+    margin: 0;
+}
+
+/* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2行） --- */
+.genre-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #fff;
+}
+
+.genre-scroll {
+    display: flex;
+    flex-wrap: wrap; /* スマホで2行になるように */
+    justify-content: center;
+    max-width: 1200px;
+    gap: 10px;
+}
+
+/* --- ジャンルボタンのスタイル --- */
+.genre-btn {
+    background: #ff7eb3;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    white-space: nowrap; /* テキストを1行にする */
+}
+
+.genre-btn:hover {
+    background: #ff5370;
+}
+
+/* --- スマホ版（768px以下）ではジャンルボタンを2行にする --- */
+@media screen and (max-width: 768px) {
+    .genre-scroll {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .genre-btn {
+        flex: 1 1 calc(50% - 10px); /* 50%幅にして2行になるように */
+        text-align: center;
+    }
+}
+
+/* --- 動画カードのグリッドレイアウト --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --- 動画カード（動画＋説明文） --- */
+.video-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+    opacity: 1;
+    display: block;
+}
+
+/* --- 動画カードの説明文を左詰めに修正 --- */
+.video-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    min-height: 100px;
+    text-align: left;  /* 左詰めに変更 */
+    padding-left: 10px; /* 左側に少し余白をつける */
+}
+
+/* --- PC版の3列グリッド --- */
+@media screen and (min-width: 769px) {
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
