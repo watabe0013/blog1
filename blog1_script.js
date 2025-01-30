@@ -1,6 +1,6 @@
 const videos = {
     entertainment: [
-        { title: "エンタメ動画1", id: "動画ID1", desc: "エンタメ動画の面白さを紹介！楽しんでください。" },
+        { title: "エンタメ動画1", id: "fG_NIYUQV3Q", desc: "エンタメ動画の面白さを紹介！楽しんでください。" },
         { title: "エンタメ動画2", id: "動画ID2", desc: "話題のエンタメ動画。最新のトレンドをチェック！" }
     ],
     vtuber: [
