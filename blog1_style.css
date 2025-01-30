@@ -25,7 +25,7 @@ body {
     color: #555;
 }
 
-/* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2列） --- */
+/* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2行） --- */
 .genre-container {
     display: flex;
     justify-content: center;
@@ -35,10 +35,10 @@ body {
 
 .genre-scroll {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap; /* スマホで2行になるように */
     justify-content: center;
-    flex-wrap: wrap; /* スマホでは折り返し、PCでは1行 */
     max-width: 1200px;
+    gap: 10px;
 }
 
 /* --- ジャンルボタンのスタイル --- */
@@ -59,18 +59,17 @@ body {
     background: #ff5370;
 }
 
-/* --- スマホ版（768px以下）ではジャンルボタンを2列にする --- */
+/* --- スマホ版（768px以下）ではジャンルボタンを2行にする --- */
 @media screen and (max-width: 768px) {
     .genre-scroll {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
-        gap: 10px;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
     }
 
     .genre-btn {
-        width: 100%;
+        flex: 1 1 calc(50% - 10px); /* 50%幅にして2行になるように */
         text-align: center;
     }
 }
