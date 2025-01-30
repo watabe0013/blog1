@@ -1,20 +1,25 @@
-const videos = {
-    entertainment: [
-        { title: "エンタメ動画1", id: "fG_NIYUQV3Q", desc: "エンタメ動画の面白さを紹介！楽しんでください。" },
-        { title: "エンタメ動画2", id: "fG_NIYUQV3Q", desc: "話題のエンタメ動画。最新のトレンドをチェック！" }
-    ],
-    vtuber: [
-        { title: "VTuber動画1", id: "fG_NIYUQV3Q", desc: "今話題のVTuber動画。魅力的な配信をお届け！" },
-        { title: "VTuber動画2", id: "fG_NIYUQV3Q", desc: "VTuberのおすすめ動画を紹介します。" }
-    ]
-};
+let videos = {}; // JSONデータを格納する変数
+
+// JSONファイルを取得
+fetch("blog1_videos.json")
+    .then(response => response.json())
+    .then(data => {
+        videos = data;
+        showCategory("entertainment"); // 初回表示
+    })
+    .catch(error => console.error("JSONデータの読み込みに失敗:", error));
 
 // ジャンルを切り替えたときに動画を表示
 function showCategory(category) {
     const container = document.getElementById("video-container");
-    container.innerHTML = "";  // 既存の動画をクリア
+    container.innerHTML = "";
 
-    videos[category].forEach(video => {
+    if (!videos[category]) {
+        console.error(`カテゴリ "${category}" のデータがありません。`);
+        return;
+    }
+
+    videos[category].forEach((video, index) => {
         const videoElement = document.createElement("div");
         videoElement.classList.add("video-card");
         videoElement.innerHTML = `
@@ -40,6 +45,3 @@ function observeCards() {
     });
     cards.forEach(card => observer.observe(card));
 }
-
-// 初回表示（エンタメカテゴリ）
-document.addEventListener("DOMContentLoaded", () => showCategory("entertainment"));
