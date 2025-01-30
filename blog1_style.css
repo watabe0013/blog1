@@ -1,3 +1,30 @@
+/* --- 明るいカラーテーマ（背景とフォント） --- */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ヘッダー（タイトル部分） --- */
+.hero {
+    background: linear-gradient(135deg, #ffebcd, #ffe4e1);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
 /* --- ジャンルボタンを中央揃え --- */
 .genre-container {
     display: flex;
@@ -14,16 +41,33 @@
     max-width: 800px;
 }
 
-/* --- 動画カードの説明文を中央揃え --- */
-.video-card p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-    min-height: 100px;
-    text-align: center;
+/* --- ジャンルボタンのスタイル --- */
+.genre-btn {
+    background: #ff7eb3;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* --- 動画カード --- */
+.genre-btn:hover {
+    background: #ff5370;
+}
+
+/* --- 動画カードのグリッドレイアウト --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --- 動画カード（動画＋説明文） --- */
 .video-card {
     background: white;
     padding: 15px;
@@ -33,6 +77,15 @@
     transition: 0.3s;
     opacity: 1;
     display: block;
+}
+
+/* --- 動画カードの説明文を中央揃え --- */
+.video-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    min-height: 100px;
+    text-align: center;
 }
 
 /* --- PC版の3列グリッド --- */
