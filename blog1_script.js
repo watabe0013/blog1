@@ -1,23 +1,11 @@
 const videos = {
     entertainment: [
-        { title: "エンタメ動画1", id: "動画ID1" },
-        { title: "エンタメ動画2", id: "動画ID2" }
+        { title: "エンタメ動画1", id: "動画ID1", desc: "エンタメ動画の面白さを紹介！楽しんでください。" },
+        { title: "エンタメ動画2", id: "動画ID2", desc: "話題のエンタメ動画。最新のトレンドをチェック！" }
     ],
     vtuber: [
-        { title: "VTuber動画1", id: "動画ID3" },
-        { title: "VTuber動画2", id: "動画ID4" }
-    ],
-    science: [
-        { title: "科学動画1", id: "動画ID5" },
-        { title: "科学動画2", id: "動画ID6" }
-    ],
-    history: [
-        { title: "歴史動画1", id: "動画ID7" },
-        { title: "歴史動画2", id: "動画ID8" }
-    ],
-    cute: [
-        { title: "かわいい動画1", id: "動画ID9" },
-        { title: "かわいい動画2", id: "動画ID10" }
+        { title: "VTuber動画1", id: "動画ID3", desc: "今話題のVTuber動画。魅力的な配信をお届け！" },
+        { title: "VTuber動画2", id: "動画ID4", desc: "VTuberのおすすめ動画を紹介します。" }
     ]
 };
 
@@ -29,15 +17,29 @@ function showCategory(category) {
     videos[category].forEach((video, index) => {
         const videoElement = document.createElement("div");
         videoElement.classList.add("video-card");
-        videoElement.style.animationDelay = `${index * 0.1}s`; // 遅延アニメーション
-
         videoElement.innerHTML = `
             <h3>${video.title}</h3>
             <iframe src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
+            <p>${video.desc}</p>
         `;
         container.appendChild(videoElement);
     });
+
+    observeCards(); // スクロールアニメーション適用
 }
 
-// 初回は「エンタメ」ジャンルを表示
+// スクロールアニメーションの適用
+function observeCards() {
+    const cards = document.querySelectorAll(".video-card");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    });
+    cards.forEach(card => observer.observe(card));
+}
+
+// 初回表示（エンタメカテゴリ）
 document.addEventListener("DOMContentLoaded", () => showCategory("entertainment"));
