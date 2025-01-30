@@ -35,10 +35,10 @@ function showCategory(category) {
         container.appendChild(videoElement);
     });
 
-    observeCards(); // スクロールアニメーションを適用
+    observeCards();
 }
 
-// **✅ observeCards() を追加**
+// スクロールアニメーションの適用
 function observeCards() {
     const cards = document.querySelectorAll(".video-card");
     const observer = new IntersectionObserver(entries => {
