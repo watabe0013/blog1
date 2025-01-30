@@ -79,14 +79,16 @@ body {
     display: block;
 }
 
-/* --- 動画カードの説明文を中央揃え --- */
+/* --- 動画カードの説明文を左詰めに修正 --- */
 .video-card p {
     font-size: 14px;
     color: #555;
     line-height: 1.6;
     min-height: 100px;
-    text-align: center;
+    text-align: left;  /* 左詰めに変更 */
+    padding-left: 10px; /* 左側に少し余白をつける */
 }
+
 
 /* --- PC版の3列グリッド --- */
 @media screen and (min-width: 769px) {
