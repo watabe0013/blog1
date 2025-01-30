@@ -37,16 +37,3 @@ function showCategory(category) {
 
     observeCards();
 }
-
-// スクロールアニメーションの適用
-function observeCards() {
-    const cards = document.querySelectorAll(".video-card");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    });
-    cards.forEach(card => observer.observe(card));
-}
