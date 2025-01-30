@@ -7,22 +7,24 @@ body {
     padding: 0;
 }
 
-/* --- ヘッダー（タイトル部分） --- */
+/* --- ヘッダー（高さを半分に調整） --- */
 .hero {
     background: linear-gradient(135deg, #ffebcd, #ffe4e1);
     text-align: center;
-    padding: 50px 20px;
+    padding: 25px 20px; /* 高さを半分に */
 }
 
 .hero h1 {
-    font-size: 2.5em;
+    font-size: 2em; /* 少し小さく */
     font-weight: bold;
     color: #333;
+    margin-bottom: 5px;
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1em; /* 少し小さく */
     color: #555;
+    margin: 0;
 }
 
 /* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2行） --- */
