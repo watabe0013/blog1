@@ -1,70 +1,29 @@
-/* --- 明るいカラーテーマ（背景とフォント） --- */
-body {
-    font-family: "Arial", sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-/* --- ヘッダー（タイトル部分） --- */
-.hero {
-    background: linear-gradient(135deg, #ffebcd, #ffe4e1);
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-.hero p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-/* --- ジャンルボタン（横スクロール式） --- */
+/* --- ジャンルボタンを中央揃え --- */
 .genre-container {
-    overflow-x: auto;
-    white-space: nowrap;
+    display: flex;
+    justify-content: center;
     padding: 10px;
     background: #fff;
 }
 
 .genre-scroll {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    padding: 10px;
+    justify-content: center;
+    max-width: 800px;
 }
 
-.genre-btn {
-    background: #ff7eb3;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+/* --- 動画カードの説明文を中央揃え --- */
+.video-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    min-height: 100px;
+    text-align: center;
 }
 
-.genre-btn:hover {
-    background: #ff5370;
-}
-
-/* --- 動画カードのグリッドレイアウト --- */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* PC: 3列, スマホ: 1列 */
-    gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* --- 動画カード（動画＋説明文） --- */
+/* --- 動画カード --- */
 .video-card {
     background: white;
     padding: 15px;
@@ -72,58 +31,13 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: 0.3s;
-    opacity: 1;  /* PC版で隠れないようにする */
-    display: block;  /* PCで非表示にならないように */
+    opacity: 1;
+    display: block;
 }
 
-.video-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.video-card h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* --- 説明文（5行分のスペース確保） --- */
-.video-card p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-    min-height: 100px;
-}
-
-/* --- iframe（動画埋め込み） --- */
-iframe {
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-}
-
-/* --- スクロールアニメーションの適用（スマホ専用） --- */
-@media screen and (max-width: 768px) {
-    .video-card {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.5s ease-in-out;
-    }
-
-    .video-card.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --- PC版で動画カードが消えないように修正 --- */
+/* --- PC版の3列グリッド --- */
 @media screen and (min-width: 769px) {
     .video-grid {
-        grid-template-columns: repeat(3, 1fr);  /* PCでは3列表示 */
-    }
-
-    .video-card {
-        opacity: 1 !important;  /* PCで透明にならないように */
-        display: block !important;  /* PCで非表示にならないように */
+        grid-template-columns: repeat(3, 1fr);
     }
 }
