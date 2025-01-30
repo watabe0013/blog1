@@ -1,4 +1,31 @@
-/* --- ジャンルボタンを1行で表示（PC版） --- */
+/* --- 明るいカラーテーマ（背景とフォント） --- */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ヘッダー（タイトル部分） --- */
+.hero {
+    background: linear-gradient(135deg, #ffebcd, #ffe4e1);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* --- ジャンルボタンを1行で表示（PC版対応） --- */
 .genre-container {
     display: flex;
     justify-content: center;
@@ -12,7 +39,7 @@
     display: flex;
     gap: 10px;
     justify-content: center;
-    max-width: 1200px; /* PCで横に広げる */
+    max-width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap; /* 折り返しを防ぐ */
 }
@@ -30,21 +57,45 @@
     white-space: nowrap; /* テキストを1行にする */
 }
 
-/* --- PC版でジャンルボタンを1行で表示（幅が狭くても折り返さない） --- */
-@media screen and (min-width: 769px) {
-    .genre-container {
-        display: flex;
-        justify-content: center;
-        overflow-x: auto;
-        white-space: nowrap;
-        max-width: 100%;
-    }
+.genre-btn:hover {
+    background: #ff5370;
+}
 
-    .genre-scroll {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        overflow-x: auto;
-        flex-wrap: nowrap; /* 折り返しを防ぐ */
+/* --- 動画カードのグリッドレイアウト --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* --- 動画カード（動画＋説明文） --- */
+.video-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+    opacity: 1;
+    display: block;
+}
+
+/* --- 動画カードの説明文を左詰めに修正 --- */
+.video-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    min-height: 100px;
+    text-align: left;  /* 左詰めに変更 */
+    padding-left: 10px; /* 左側に少し余白をつける */
+}
+
+/* --- PC版の3列グリッド --- */
+@media screen and (min-width: 769px) {
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
