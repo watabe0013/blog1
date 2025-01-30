@@ -1,8 +1,13 @@
-let videos = {}; // JSONデータを格納する変数
+let videos = {};
 
 // JSONファイルを取得
 fetch("blog1_videos.json")
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTPエラー: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         videos = data;
         showCategory("entertainment"); // 初回表示
@@ -24,13 +29,13 @@ function showCategory(category) {
         videoElement.classList.add("video-card");
         videoElement.innerHTML = `
             <h3>${video.title}</h3>
-            <iframe src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="180" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen></iframe>
             <p>${video.desc}</p>
         `;
         container.appendChild(videoElement);
     });
 
-    observeCards(); // スクロールアニメーション適用
+    observeCards();
 }
 
 // スクロールアニメーションの適用
