@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* --- ヘッダー（高さを半分に調整） --- */
+/* --- ヘッダー（PC版: 高さを半分に） --- */
 .hero {
     background: linear-gradient(135deg, #ffebcd, #ffe4e1);
     text-align: center;
@@ -25,6 +25,21 @@ body {
     font-size: 1em; /* 少し小さく */
     color: #555;
     margin: 0;
+}
+
+/* --- スマホ版（768px以下）のヘッダーをさらに小さくする --- */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 15px 10px; /* さらに小さくして半分の高さに */
+    }
+
+    .hero h1 {
+        font-size: 1.5em; /* スマホ向けにタイトルを小さく */
+    }
+
+    .hero p {
+        font-size: 0.9em; /* 説明文も小さく */
+    }
 }
 
 /* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2行） --- */
