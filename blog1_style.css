@@ -25,23 +25,20 @@ body {
     color: #555;
 }
 
-/* --- ジャンルボタンを1行で表示（PC版対応） --- */
+/* --- ジャンルボタンを中央配置（PC版: 1行, スマホ: 2列） --- */
 .genre-container {
     display: flex;
     justify-content: center;
     padding: 10px;
     background: #fff;
-    overflow-x: auto; /* 横スクロール可能に */
-    white-space: nowrap; /* 折り返さない */
 }
 
 .genre-scroll {
     display: flex;
     gap: 10px;
     justify-content: center;
-    max-width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    flex-wrap: wrap; /* スマホでは折り返し、PCでは1行 */
+    max-width: 1200px;
 }
 
 /* --- ジャンルボタンのスタイル --- */
@@ -54,11 +51,28 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
     white-space: nowrap; /* テキストを1行にする */
 }
 
 .genre-btn:hover {
     background: #ff5370;
+}
+
+/* --- スマホ版（768px以下）ではジャンルボタンを2列にする --- */
+@media screen and (max-width: 768px) {
+    .genre-scroll {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .genre-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* --- 動画カードのグリッドレイアウト --- */
